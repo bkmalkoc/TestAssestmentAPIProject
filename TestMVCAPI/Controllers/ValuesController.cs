@@ -14,7 +14,7 @@ namespace TestMVCAPI.Controllers
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
-
+        //Mocked fees.json
         List<FeesResponse> fees = new List<FeesResponse>()
             {
                 new FeesResponse
@@ -97,6 +97,7 @@ namespace TestMVCAPI.Controllers
                 }
             };
 
+        //Mocked orders.json
         List<OrdersResponse> orders = new List<OrdersResponse>()
         {
             new OrdersResponse()
@@ -186,34 +187,7 @@ namespace TestMVCAPI.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var req = new List<FeesResponse>()
-            {
-                new FeesResponse
-                {
-                    order_item_type = "aaa",
-                    distributions = new List<Distribution>
-                    {
-                        new Distribution()
-                        {
-                            amount = "23",
-                            name = "bb"
-                        }
-                    },
-                    fees = new List<Fee>
-                    {
-                         new Fee()
-                         {
-                             amount = "123",
-                             name = "a",
-                             type = "ab"
-                         }
-                    }
-                }
-            };
-
-            var res = req.FirstOrDefault();
-
-            return new ObjectResult(res);
+            return new ObjectResult("Please check out wiki for how to use the REST API");
         }
 
         // GET api/values/5
