@@ -255,8 +255,6 @@ namespace TestMVCAPI.Controllers
                 sumAmount += float.Parse(amount[z]);
             }
 
-            var orderJson = JsonConvert.SerializeObject(amount);
-
             return Json(new OrderMap() {
                 OrderName = orderType,
                 OrderPrice = amount,
@@ -306,16 +304,16 @@ namespace TestMVCAPI.Controllers
                 {
                     sumAmount += float.Parse(distributionAmount[z]);
                 }
-
             }
-
-            var orderJson = JsonConvert.SerializeObject(distributionAmount);
-
-            return Json(new DistrubitionMap()
+            
+            return Json(new List<DistrubitionMap>()
             {
-                OrderName = orderType,
-                DistributionPrice = distributionAmount,
-                TotalAmount = sumAmount.ToString()
+                new DistrubitionMap()
+                {
+                    OrderName = orderType,
+                    DistributionPrice = distributionAmount,
+                    TotalAmount = sumAmount.ToString()
+                }
             });
         }
 
